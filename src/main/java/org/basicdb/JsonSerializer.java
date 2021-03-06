@@ -7,6 +7,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.Serializable;
 
+/**
+ * An implementation of Serializer that use JSON format
+ */
 public class JsonSerializer implements Serializer {
     @Override
     public String serialize(Serializable serializable) {

@@ -1,13 +1,38 @@
 package org.basicdb;
 
+import org.models.Ticket;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.PriorityQueue;
+import java.util.Scanner;
 
+/**
+ * Application entry point
+ */
 public class App {
-    public static void main(String[] args) {
+    /**
+     * Determines the file name that would be used for as database file name
+     *
+     * @return database file name
+     */
+    private static String getFileName() {
+        String fileName = System.getenv("BASICDB_FILE_NAME");
+        return fileName != null ? fileName : "db.json";
+    }
 
-        PriorityQueue<Integer> q = new PriorityQueue<Integer>();
+    public static void main(String[] args) {
+        ModelParser modelParser = new ModelParser(new Scanner(System.in), System.out);
+        Ticket ticket = modelParser.parse(Ticket.class, 1);
+        JsonSerializer serializer = new JsonSerializer();
+        String str = serializer.serialize(ticket);
+        System.out.println("You entered:");
+        System.out.println(str);
+
+        String fileName = getFileName();
+        System.out.println("Using file " + fileName);
+
+        PriorityQueue<Integer> q = new PriorityQueue<>();
 
         //PrintStream stream = new PrintStream("d");
 
@@ -32,7 +57,5 @@ public class App {
 
 
         //System.out.println("Hello World!");
-
-
     }
 }

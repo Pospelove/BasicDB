@@ -5,7 +5,12 @@ import org.annotations.GreaterThan;
 import org.annotations.NonNull;
 import org.annotations.Unique;
 
-public class IdHolder {
+import java.io.Serializable;
+
+/**
+ * A base class for any database model
+ */
+public class IdHolder implements Serializable {
     @NonNull
     @GreaterThan(0)
     @Unique

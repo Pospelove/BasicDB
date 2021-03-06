@@ -4,6 +4,11 @@ import java.lang.reflect.Field;
 import java.util.Optional;
 import java.util.PriorityQueue;
 
+/**
+ * An implementation of Storage that use PriorityQueue under the hood
+ *
+ * @param <T> type of collection elements
+ */
 public class PriorityQueueStorage<T extends IdHolder> implements Storage<T> {
     @Override
     public void forEach(StorageForEachCallback<T> callback) {

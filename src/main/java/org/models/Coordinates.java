@@ -5,8 +5,8 @@ import org.annotations.NonNull;
 
 public class Coordinates {
     @NonNull
-    private Float x;
+    public Float x;
 
     @GreaterThan(-494)
-    private long y;
+    public long y;
 }

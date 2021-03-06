@@ -1,6 +1,10 @@
 package org.basicdb;
 
 public class Bar extends IdHolder implements Comparable<Bar> {
+    public Bar(long id) {
+        super(id);
+    }
+
     public Bar(long id, String barName) {
         super(id);
         this.barName = barName;
